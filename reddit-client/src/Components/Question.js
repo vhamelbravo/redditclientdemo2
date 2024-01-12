@@ -12,7 +12,7 @@ function Question({ setResult, hasChosenNo, setHasChosenNo }) {
       });
     }
     try {
-	    const answer1 = document.getElementById("input-1").value;
+      const answer1 = document.getElementById("input-1").value;
       const answer2 = document.getElementById("input-2").value;
       const answer3 = document.getElementById("input-3").value;
       const answer4 = document.getElementById("input-4").value;
@@ -34,9 +34,11 @@ function Question({ setResult, hasChosenNo, setHasChosenNo }) {
         currentRent: answer9,
       };
 
-      const response = await axios.post("http://localhost:5000/predict", postData,);
-	    setResult(response.data)
-
+      const response = await axios.post(
+        "http://localhost:5000/predict",
+        postData,
+      );
+      setResult(response.data);
     } catch (error) {
       console.error("Error:", error);
       setResult("An error occurred while fetching data.");

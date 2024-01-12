@@ -1,4 +1,4 @@
-import react, { useRef, useEffect} from "react";
+import react, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 function Results2({ hasChosenNo, result }) {
@@ -23,25 +23,29 @@ function Results2({ hasChosenNo, result }) {
         {hasResults2 ? (
           <div>
             <p>
-               House Price: £{result.house_price.toFixed(0)} in {new Date().getFullYear()}{" "}
+              House Price: £{result.house_price.toFixed(0)} in{" "}
+              {new Date().getFullYear()}{" "}
             </p>
-		<br />
+            <br />
             <p>
               If you save at {result.x}% you would be able to buy your first 25%
               share (equity) in a shared ownership property when you are{" "}
               {result.age_at_SO.toFixed()}
             </p>
-		<br />
+            <br />
             <p>
               {" "}
               See graph for proposed staircasing pathway. Your accumulated
-              wealth would be £{result.accumulated_wealth_at_67.toFixed(0)} at 67 years of
-              age
+              wealth would be £{result.accumulated_wealth_at_67.toFixed(0)} at
+              67 years of age
             </p>
-		<br />
-		<p>
-		Staircasing in shared ownership is the process of gradually increasing the ownership share of a property over time by purchasing additional percentages, thereby reducing the amount of rent paid on the remaining share.
-		</p>
+            <br />
+            <p>
+              Staircasing in shared ownership is the process of gradually
+              increasing the ownership share of a property over time by
+              purchasing additional percentages, thereby reducing the amount of
+              rent paid on the remaining share.
+            </p>
           </div>
         ) : hasError ? (
           <p>Error: {result.error}</p>

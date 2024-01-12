@@ -448,6 +448,12 @@ function Input({ setResult, setResult2 }) {
     scrollCarousel(6); // Assuming scrollCarousel is a function that changes the slide
   };
 
+	const [sliderValue, setSliderValue] = useState(1);
+
+	const handleSliderChange = (event) => {
+	setSliderValue(event.target.value);
+	};
+
   return (
     <div id="input" className="bg-gray-200 min-h-screen">
       <div id="carousel" className="carousel w-full py-60">
@@ -525,15 +531,17 @@ function Input({ setResult, setResult2 }) {
                 How many bedrooms does your desired house have?
               </span>
             </label>
-            <select
-              className="input input-bordered w-full max-w-xs"
-              id="input-3"
-            >
-              <option value="1">1 bedroom</option>
-              <option value="2">2 bedrooms</option>
-              <option value="3">3 bedrooms</option>
-              <option value="4+">4+ bedrooms</option>
-            </select>
+	  <div className="rounded-lg p-4 shadow-lg max-w-[300px]">
+	  <div className="p-4">
+	  <span className="text-sm">  </span>
+	  <span className="text-sm text-black"> {sliderValue} </span>
+	  <input id="input-3" className="w-full accent-indigo-600" defaultValue="1" type="range" min="1" max="4" step="1" onChange={handleSliderChange}/>
+	  <div className="-mt-2 flex w-full justify-between">
+	  <span className="text-sm text-gray-600"> 1 </span>
+	  <span className="text-sm text-gray-600"> 4+ </span>
+	  </div>
+	  </div>
+	  </div>
           </div>
           <div className="flex justify-between px-5 my-10">
             <button className="btn" onClick={() => scrollCarousel(2)}>
@@ -588,11 +596,17 @@ function Input({ setResult, setResult2 }) {
                 What is your monthly household income after tax?
               </span>
             </label>
-            <input
-              type="number"
-              className="input input-bordered w-full max-w-xs"
-              id="input-5"
-            />
+	  <div className="rounded-lg p-4 shadow-lg max-w-[300px]">
+	  <div className="p-4">
+	  <span className="text-sm"> £ </span>
+	  <span className="text-sm text-black"> {sliderValue} </span>
+	  <input id="input-5" className="w-full accent-indigo-600" type="range" defaultValue="1" min="0" max="50000" step="1" onChange={handleSliderChange}/>
+	  <div className="-mt-2 flex w-full justify-between">
+	  <span className="text-sm text-gray-600"> £0 </span>
+	  <span className="text-sm text-gray-600"> £50000 </span>
+	  </div>
+	  </div>
+	  </div>
           </div>
           <div className="flex justify-between px-5 my-10">
             <button className="btn" onClick={() => scrollCarousel(4)}>
@@ -616,11 +630,17 @@ function Input({ setResult, setResult2 }) {
                 How much of your post-tax income is spent on expenses (%)?
               </span>
             </label>
-            <input
-              type="number"
-              className="input input-bordered w-full max-w-xs"
-              id="input-6"
-            />
+	  <div className="rounded-lg p-4 shadow-lg max-w-[300px]">
+	  <div className="p-4">
+	  <span className="text-sm text-black"> {sliderValue} </span>
+	  <span className="text-sm"> % </span>
+	  <input id="input-6" className="w-full accent-indigo-600" type="range" defaultValue="1"  min="1" max="100" step="1" onChange={handleSliderChange}/>
+	  <div className="-mt-2 flex w-full justify-between">
+	  <span className="text-sm text-gray-600"> 1% </span>
+	  <span className="text-sm text-gray-600"> 100% </span>
+	  </div>
+	  </div>
+	  </div>
           </div>
           <div className="flex justify-between px-5 my-10">
             <button className="btn" onClick={() => scrollCarousel(5)}>
@@ -644,11 +664,17 @@ function Input({ setResult, setResult2 }) {
                 What is the age of your head of household?
               </span>
             </label>
-            <input
-              type="number"
-              className="input input-bordered w-full max-w-xs"
-              id="input-7"
-            />
+	  <div className="rounded-lg p-4 shadow-lg max-w-[300px]">
+	  <div className="p-4">
+	  <span className="text-sm">  </span>
+	  <span className="text-sm text-black"> {sliderValue} </span>
+	  <input id="input-7" className="w-full accent-indigo-600" type="range" defaultValue="1"  min="1" max="99" step="1" onChange={handleSliderChange}/>
+	  <div className="-mt-2 flex w-full justify-between">
+	  <span className="text-sm text-gray-600"> 1 </span>
+	  <span className="text-sm text-gray-600"> 99 </span>
+	  </div>
+	  </div>
+	  </div>
           </div>
           <div className="flex justify-between px-5 my-10">
             <button className="btn" onClick={() => scrollCarousel(6)}>
@@ -672,11 +698,17 @@ function Input({ setResult, setResult2 }) {
                 How much do you have in current savings?
               </span>
             </label>
-            <input
-              type="number"
-              className="input input-bordered w-full max-w-xs"
-              id="input-8"
-            />
+	  <div className="rounded-lg p-4 shadow-lg max-w-[300px]">
+	  <div className="p-4">
+	  <span className="text-sm"> £ </span>
+	  <span className="text-sm text-black"> {sliderValue} </span>
+	  <input id="input-8" className="w-full accent-indigo-600" type="range" defaultValue="1"  min="1" max="999999" step="1" onChange={handleSliderChange}/>
+	  <div className="-mt-2 flex w-full justify-between">
+	  <span className="text-sm text-gray-600"> £1 </span>
+	  <span className="text-sm text-gray-600"> £999999 </span>
+	  </div>
+	  </div>
+	  </div>
           </div>
           <div className="flex justify-between px-5 my-10">
             <button className="btn" onClick={() => scrollCarousel(7)}>
@@ -698,11 +730,18 @@ function Input({ setResult, setResult2 }) {
             <label className="label">
               <span className="text-black">What is your current rent?</span>
             </label>
-            <input
-              type="number"
-              className="input input-bordered w-full max-w-xs"
-              id="input-9"
-            />
+
+	  <div className="rounded-lg p-4 shadow-lg max-w-[300px]">
+	  <div className="p-4">
+	  <span className="text-sm"> £ </span>
+	  <span className="text-sm text-black"> {sliderValue} </span>
+	  <input id="input-9" className="w-full accent-indigo-600" type="range" defaultValue="1"  min="1" max="50000" step="1" onChange={handleSliderChange}/>
+	  <div className="-mt-2 flex w-full justify-between">
+	  <span className="text-sm text-gray-600"> £1 </span>
+	  <span className="text-sm text-gray-600"> £50000 </span>
+	  </div>
+	  </div>
+	  </div>
           </div>
           <div className="flex justify-between px-5 my-10">
             <button className="btn" onClick={() => scrollCarousel(8)}>
